@@ -3,27 +3,35 @@
 typedef struct node
 {
     int data;
-    struct node *next;
+    struct node* next;
 } node;
 
 int main()
 {
-    node obj1,obj2,obj3;
-    obj1.data=20;
-    obj1.next=NULL;
-    
-    obj2.data=30;
-    obj2.next=NULL;
-    
-    obj3.data=40;
-    obj3.next=NULL;
+    node *head=NULL;
+    node *first=NULL;
+    node *second=NULL;
 
-    obj1.next=&obj2;
-    obj2.next=&obj3;
+    head = (node*)malloc(sizeof(node));
+    first = (node*)malloc(sizeof(node));
+    second = (node*)malloc(sizeof(node));
+    
+    head->data=20;
+    head->data=&first;
+    
+    first->data=30;
+    first->next=&second;
+    
+    second->data=40;
+    second->next=NULL;
 
-    printf("Object1: %d\n", obj1.data);
-    printf("Object2: %d\n", obj1.next->data);
-    printf("Object3: %d\n", obj1.next->next->data);
+    while(head!=NULL){
+        printf("%d\n", head->data);
+        head=head->next;
+    }
+    // printf("Object1: %d\n", head.data);
+    // printf("Object2: %d\n", head.next->data);
+    // printf("Object3: %d\n", head.next->next->data);
 
     return 0;
 }
