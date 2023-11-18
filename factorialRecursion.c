@@ -1,20 +1,20 @@
 #include <stdio.h>
 
-int factorial(int n);
+long long factorial(long long n);
 
 int main() {
-	int n=5;
+	long long n=13;
 	
-	printf("factorial of 5: %d", factorial(n));
+	printf("factorial of 13: %lld", factorial(n));
 	return 0;
 }
 
-int factorial(int n) {
+long long factorial(long long n) {
 
 	if(n == 1) {
 		return 1;
 	}
 
-	int factNm1 = factorial(n-1);
-	int factN = factNm1 * n;
+	long long factNm1 = factorial(n-1);
+	long long factN = factNm1 * n;
 }
